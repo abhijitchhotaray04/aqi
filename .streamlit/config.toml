@@ -1,0 +1,6 @@
+[theme]
+base = "light"
+primaryColor = "#0284C7"          # Sky blue accent
+backgroundColor = "#F0F9FF"     # Soft cloud-sky tint
+secondaryBackgroundColor = "#E0F2FE"  # Pale sky blue for sidebar & cards
+textColor = "#0F172A"           # Deep slate ink for high readability

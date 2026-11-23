@@ -8,6 +8,26 @@ from statsmodels.tsa.arima.model import ARIMA
 
 st.set_page_config(page_title="Urban AQI Time-Series Forecaster", layout="wide")
 
+st.markdown(
+    """
+    <style>
+        .stApp {
+            background: linear-gradient(180deg, #E0F2FE 0%, #F8FAFC 45%, #FFFFFF 100%);
+        }
+        [data-testid="stMetric"] {
+            background-color: rgba(255, 255, 255, 0.85);
+            border: 1px solid #BAE6FD;
+            border-radius: 12px;
+            padding: 14px 18px;
+            box-shadow: 0 4px 14px rgba(2, 132, 199, 0.08);
+        }
+        [data-testid="stSidebar"] {
+            border-right: 1px solid #BAE6FD;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
 def aqi_category(val: float) -> str:
     if val <= 50:
@@ -92,6 +112,16 @@ for m in selected_models:
         )
     )
 fig_test.update_layout(xaxis_title="Date", yaxis_title="AQI", hovermode="x unified", height=420)
+
+fig_test.update_layout(
+    paper_bgcolor="rgba(255,255,255,0.75)",
+    plot_bgcolor="rgba(240,249,255,0.6)",
+    xaxis_title="Date",
+    yaxis_title="AQI",
+    hovermode="x unified",
+    height=420,
+)
+
 st.plotly_chart(fig_test, width="stretch")
 
 # Model metrics table on test set
